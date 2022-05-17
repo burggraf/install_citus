@@ -20,7 +20,6 @@ sudo sed -i "s/shared_preload_libraries = 'pg_stat_statements/shared_preload_lib
 
 # restart postgresql.service
 sudo systemctl restart postgresql.service
-CREATE EXTENSION citus;
 
-# test to see if Citus is working
-sudo -u postgres psql postgres -c "select citus_version();"
+# turn on Citus extension, check version to make sure it's working
+psql -U supabase_admin -h localhost -d postgres -c "CREATE EXTENSION citus;select citus_version();"
