@@ -22,4 +22,5 @@ sudo sed -i "s/shared_preload_libraries = 'pg_stat_statements/shared_preload_lib
 sudo systemctl restart postgresql.service
 
 # turn on Citus extension, check version to make sure it's working
+sudo apt install postgresql-client -y
 psql -U supabase_admin -h localhost -d postgres -c "CREATE EXTENSION citus;select citus_version();"
